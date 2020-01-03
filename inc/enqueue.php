@@ -1,7 +1,10 @@
 <?php
 /**
  * Enqueue styles
+ * 
+ * @package storefrontchild
  */
+
 if ( ! function_exists('storefrontchild_enqueue_styles') ) {
 
   function storefrontchild_enqueue_styles() {
