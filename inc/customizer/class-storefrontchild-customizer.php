@@ -19,8 +19,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require __DIR__.'/../../../storefront/inc/customizer/class-storefront-customizer.php';
-
 require 'storefrontchild-customizer-top-bar.php';
+require_once dirname( __FILE__ ) . '/../storefrontchild-template-functions.php';
 
 class StorefrontChild_Customizer extends Storefront_Customizer
 {
@@ -32,6 +32,7 @@ class StorefrontChild_Customizer extends Storefront_Customizer
 
   public function __construct() {
     add_action( 'customize_register', [ $this , 'customize_register' ], 10 );
+    add_action('storefront_before_header', [ $this , 'get_storefrontchild_html' ] );
     add_filter( 'storefront_setting_default_values', [ $this, 'storefrontchild_setting_default_values' ] );
   }
 
@@ -71,6 +72,36 @@ class StorefrontChild_Customizer extends Storefront_Customizer
       ]
     );
     storefrontchild_customizer_top_bar( $wp_customize );
+  }
+
+  /**
+   * Get all of the Storefront Child theme mods.
+   *
+   * @return array $storefrontchild_theme_mods The Storefront Child Theme Mods.
+   */
+  public function get_storefrontchild_theme_mods() {
+    $storefrontchild_theme_mods = [
+      'topbar_bg'         => get_theme_mod( 'storefrontchild_topbar_bg' ),
+      'topbar_color'      => get_theme_mod( 'storefrontchild_topbar_color' ),
+      'topbar_link_color' => get_theme_mod( 'storefrontchild_topbar_link_color' ),
+      'topbar_text'       => get_theme_mod( 'storefrontchild_topbar_text' ),
+      'topbar_url'        => get_theme_mod( 'storefrontchild_topbar_url' ),
+    ];
+
+    return apply_filters( 'storefrontchild_theme_mods', $storefrontchild_theme_mods );
+  }
+
+  /**
+   * Get Storefront Child Customizer html.
+   * 
+   * @see get_storefrontchild_theme_mods()
+   * @see storefrontchild_top_bar( $storefrontchild_theme_mods )
+   */
+  public function get_storefrontchild_html() {
+
+    $storefrontchild_theme_mods = $this->get_storefrontchild_theme_mods();
+    
+    storefrontchild_top_bar( $storefrontchild_theme_mods );
   }
 }
 
