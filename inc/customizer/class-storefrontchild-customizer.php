@@ -172,8 +172,8 @@ class StorefrontChild_Customizer extends Storefront_Customizer
     wp_add_inline_style( 'storefrontchild-style', $this->get_css() );
   }
 }
-$StorefrontChild_Customizer = new StorefrontChild_Customizer();
-return $StorefrontChild_Customizer;
+$storefrontchild_customizer = new StorefrontChild_Customizer();
+return $storefrontchild_customizer;
 
 
 
