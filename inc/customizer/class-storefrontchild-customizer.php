@@ -33,6 +33,8 @@ class StorefrontChild_Customizer extends Storefront_Customizer
   public function __construct() {
     add_action( 'customize_register', [ $this , 'customize_register' ], 10 );
     add_action('storefront_before_header', [ $this , 'get_storefrontchild_html' ] );
+    add_filter( 'body_class', [ $this , 'layout_class' ] );
+    add_action( 'wp_enqueue_scripts', [ $this , 'add_customizer_css' ], 130 );
     add_filter( 'storefront_setting_default_values', [ $this, 'storefrontchild_setting_default_values' ] );
   }
 
@@ -103,7 +105,75 @@ class StorefrontChild_Customizer extends Storefront_Customizer
     
     storefrontchild_top_bar( $storefrontchild_theme_mods );
   }
+
+  /**
+   * Layout classes
+   * Adds storefrontchild-top-bar class to the body tag
+   * 
+   * @param  array $classes current body classes.
+   * @return string[] modified body classes
+   * @since  1.0.0
+   */
+  public function layout_class( $classes ) {
+
+    $classes[] = 'storefrontchild-top-bar';
+    
+    return $classes;
+  }
+
+  /**
+   * Get Customizer css.
+   *
+   * @see get_storefrontchild_theme_mods()
+   * @return string $styles the css
+   * @since 1.0.0
+   */
+  public function get_css(){
+
+    $storefrontchild_theme_mods = $this->get_storefrontchild_theme_mods();
+    
+    $storefrontchild_topbar_bg = $storefrontchild_theme_mods['topbar_bg'];
+    $storefrontchild_topbar_color = $storefrontchild_theme_mods['topbar_color'];
+    $storefrontchild_topbar_link_color = $storefrontchild_theme_mods['topbar_link_color'];
+    
+    $styles = '
+      .storefrontchild-top-bar nav.info {
+        line-height: 26px;
+        background-color: ' . $storefrontchild_topbar_bg . ';
+      }
+      nav.info {
+        text-align: center;      
+        margin-left: 0;
+        margin-right: 0;
+      }
+      .storefrontchild-top-bar .hfeed nav.info span.info-center,
+      .storefrontchild-top-bar .hfeed nav.info span.info-center a {
+        color: ' . $storefrontchild_topbar_color . ';
+        letter-spacing: 4px;
+        font-size: 14px;
+        font-weight: normal;
+        font-style: normal;
+        list-style: none;
+      }
+      body.storefrontchild-top-bar .hfeed .info .info-center a:hover {
+        color: ' . $storefrontchild_topbar_link_color . ';
+      }';
+  
+    return apply_filters( 'storefront_customizer_css', $styles );
+  }
+
+  /**
+   * Add CSS in <head> for styles handled by the child theme customizer
+   *
+   * @return void
+   * @since 1.0.0
+   */
+  public function add_customizer_css() {
+    wp_add_inline_style( 'storefrontchild-style', $this->get_css() );
+  }
 }
+$StorefrontChild_Customizer = new StorefrontChild_Customizer();
+return $StorefrontChild_Customizer;
 
 
 
