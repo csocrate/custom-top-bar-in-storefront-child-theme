@@ -1,6 +1,6 @@
 <?php
 /**
- * Storefront Child template functions
+ * Storefront Child Customizer template function
  *
  * @package storefrontchild
  */

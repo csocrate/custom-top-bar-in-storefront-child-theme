@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require __DIR__.'/../../../storefront/inc/customizer/class-storefront-customizer.php';
 require 'storefrontchild-customizer-top-bar.php';
-require_once dirname( __FILE__ ) . '/../storefrontchild-template-functions.php';
+require 'storefrontchild-customizer-template-functions.php';
 
 class StorefrontChild_Customizer extends Storefront_Customizer
 {
