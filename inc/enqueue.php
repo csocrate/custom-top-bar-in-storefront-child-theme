@@ -6,7 +6,13 @@
  */
 
 if ( ! function_exists('storefrontchild_enqueue_styles') ) {
-
+  /**
+   * Declaring style sheets
+   * 
+   * @see https://docs.woocommerce.com/document/set-up-and-use-a-child-theme/
+   * to unsterstand why with Storefront we usually don't need to enqueue any of the parent theme style files.
+   * But here, for Customization API, enqueue styles is needed.
+   */
   function storefrontchild_enqueue_styles() {
 
     $parent_style = 'storefront-style'; // for the Storefront Theme
