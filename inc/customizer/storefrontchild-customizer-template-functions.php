@@ -17,13 +17,14 @@ if ( ! function_exists( 'storefrontchild_top_bar' ) ) {
       $topbar_text = $storefrontchild_theme_mods['topbar_text'];
 
       $top_bar_html = '
-      <nav class="info">
-        <span class="info-center">
+      <nav class="top-bar">
+        <span class="top-bar-center">
           <a href="' . $topbar_url . '">' 
             . $topbar_text .
           '</a>
         </span>
-      </nav>';
+      </nav>
+      <!-- .top-bar -->';
 
       echo $top_bar_html;
     endif;

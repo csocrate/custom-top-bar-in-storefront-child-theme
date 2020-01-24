@@ -137,17 +137,17 @@ class StorefrontChild_Customizer extends Storefront_Customizer
     $storefrontchild_topbar_link_color = $storefrontchild_theme_mods['topbar_link_color'];
     
     $styles = '
-      .storefrontchild-top-bar nav.info {
+      .storefrontchild-top-bar nav.top-bar {
         line-height: 26px;
         background-color: ' . $storefrontchild_topbar_bg . ';
       }
-      nav.info {
+      nav.top-bar {
         text-align: center;      
         margin-left: 0;
         margin-right: 0;
       }
-      .storefrontchild-top-bar .hfeed nav.info span.info-center,
-      .storefrontchild-top-bar .hfeed nav.info span.info-center a {
+      .storefrontchild-top-bar .hfeed nav.top-bar span.top-bar-center,
+      .storefrontchild-top-bar .hfeed nav.top-bar span.top-bar-center a {
         color: ' . $storefrontchild_topbar_color . ';
         letter-spacing: 4px;
         font-size: 14px;
@@ -155,7 +155,7 @@ class StorefrontChild_Customizer extends Storefront_Customizer
         font-style: normal;
         list-style: none;
       }
-      body.storefrontchild-top-bar .hfeed .info .info-center a:hover {
+      body.storefrontchild-top-bar .hfeed .top-bar .top-bar-center a:hover {
         color: ' . $storefrontchild_topbar_link_color . ';
       }';
   
