@@ -3,7 +3,7 @@
 **Author:** 2020 - @csocrate  
 **License:** GNU General Public License v2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-**Version:** 1.0.0
+**Version:** 1.0.1
 
 ## Description
 
@@ -35,6 +35,14 @@ You can download or clone this repository, create a folder named "storefrontchil
 * [Handbook about Child Themes](https://developer.wordpress.org/themes/advanced-topics/child-themes/)
 * [WordPress Codex about Theme Customization API](https://codex.wordpress.org/Theme_Customization_API)
 Build custom top bar from WordPress Customize API
+
+## Changelog
+
+= 1.0.1 =
+* Added condition to the custom body class
+
+= 1.0.0 =
+* Initial release
 
 ## More about license
 

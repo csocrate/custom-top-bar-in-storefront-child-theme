@@ -7,7 +7,7 @@ namespace storefrontchild\StorefrontChild_Customizer;
  *
  * @package  storefrontchild
  * @link https://codex.wordpress.org/Theme_Customization_API#Sample_Theme_Customization_Class
- * @since    1.0.0
+ * @since    1.0.1
  */
 
 //Classes used
@@ -120,7 +120,7 @@ class StorefrontChild_Customizer extends Storefront_Customizer
 
     if ( ! empty( $storefrontchild_theme_mods[ 'topbar_text' ] ) ) {
 
-    $classes[] = 'storefrontchild-top-bar';
+      $classes[] = 'storefrontchild-top-bar';
 
     }
     
