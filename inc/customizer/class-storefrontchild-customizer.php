@@ -112,11 +112,17 @@ class StorefrontChild_Customizer extends Storefront_Customizer
    * 
    * @param  array $classes current body classes.
    * @return string[] modified body classes
-   * @since  1.0.0
+   * @since  1.0.1
    */
   public function layout_class( $classes ) {
 
+    $storefrontchild_theme_mods = $this->get_storefrontchild_theme_mods();
+
+    if ( ! empty( $storefrontchild_theme_mods[ 'topbar_text' ] ) ) {
+
     $classes[] = 'storefrontchild-top-bar';
+
+    }
     
     return $classes;
   }
